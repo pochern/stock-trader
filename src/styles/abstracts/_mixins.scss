@@ -1,0 +1,33 @@
+//Padding mixin
+@mixin padding($args...) {
+  @each $name, $value in $args {
+    @if $name == top {
+      padding-top: $value;
+    } @else if $name == right {
+      padding-right: $value;
+    } @else if $name == bottom {
+      padding-bottom: $value;
+    } @else if $name == left {
+      padding-left: $value;
+    } @else if $name == all {
+      padding: $value;
+    }
+  }
+}
+
+//Margin mixin
+@mixin margin($args...) {
+  @each $name, $value in $args {
+    @if $name == top {
+      margin-top: $value;
+    } @else if $name == right {
+      margin-right: $value;
+    } @else if $name == bottom {
+      margin-bottom: $value;
+    } @else if $name == left {
+      margin-left: $value;
+    } @else if $name == all {
+      margin: $value;
+    }
+  }
+}
