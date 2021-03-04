@@ -1,11 +1,9 @@
 <template>
   <div id="app">
     <the-header></the-header>
-    <b-row>
-      <b-col col="12">
-        <router-view></router-view>
-      </b-col>
-    </b-row>
+    <section class="content">
+      <router-view></router-view>
+    </section>
   </div>
 </template>
 
@@ -30,6 +28,10 @@ export default Vue.extend({
 }
 
 body {
-  @include padding(all (30px 60px));
+  @include padding(all (35px 60px));
+}
+
+.content {
+  @include padding(all (0 30px));
 }
 </style>

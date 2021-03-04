@@ -47,6 +47,6 @@
 @import '@/styles/main.scss';
 
 nav {
-  @include margin(bottom 35px);
+  @include margin(bottom 30px);
 }
 </style>
