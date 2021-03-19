@@ -8,18 +8,47 @@
       header-text-variant="white"
       header-tag="header"
       header-bg-variant="success"
-      title="Title"
     >
       <template #header>
         <h3>
-          NAME
-          <small>(Price: PRICE)</small>
+          {{ stock.name }}
+          <small>(Price: {{ stock.price }})</small>
         </h3>
       </template>
-      <b-card-text>Header and footers variants.</b-card-text>
+      <b-card-text>
+        <input
+          v-model.number="quantity"
+          class="form-control"
+          type="number"
+          placeholder="Quantity"
+        >
+        <b-button
+          variant="success"
+        >
+          Buy
+        </b-button>
+      </b-card-text>
     </b-card>
   </b-col>
 </template>
+
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
+  props: {
+    stock: {
+      type: Object,
+      required: true,
+    },
+  },
+  data() {
+    return {
+      quantity: 0,
+    };
+  },
+});
+</script>
 
 <style lang="scss" scoped>
 @import '@/styles/main.scss';
@@ -28,7 +57,14 @@ h3 {
   @include margin(bottom 0);
 }
 
+.form-control {
+  @include w-h(200px, undefined);
+}
 .card {
   @include margin(bottom 30px);
+}
+.card-text {
+  display: flex;
+  justify-content: space-between;
 }
 </style>
