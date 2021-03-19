@@ -31,3 +31,15 @@
     }
   }
 }
+
+//Width-Height mixin
+@mixin w-h($width, $height) {
+  @if $width == undefined {
+    height: $height;
+  } @else if $height == undefined {
+    width: $width;
+  } @else {
+    width: $width;
+    height: $height;
+  }
+}
