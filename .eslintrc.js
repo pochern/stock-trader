@@ -15,11 +15,11 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'vue/html-self-closing': ['error', {
-      'html': {
+      html: {
         normal: 'never',
         void: 'never',
-        component: 'never'
-      }
-    }]
+        component: 'never',
+      },
+    }],
   },
 };
