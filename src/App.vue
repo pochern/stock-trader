@@ -15,6 +15,9 @@ export default Vue.extend({
   components: {
     TheHeader,
   },
+  created() {
+    this.$store.dispatch('initStocks');
+  },
 });
 </script>
 

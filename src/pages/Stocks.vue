@@ -16,15 +16,10 @@ export default Vue.extend({
   components: {
     'app-stock': Stock,
   },
-  data() {
-    return {
-      stocks: [
-        { id: 1, name: 'VLKAF', price: 197 },
-        { id: 2, name: 'JNJ', price: 160 },
-        { id: 3, name: 'TSLA', price: 701 },
-        { id: 4, name: 'FB', price: 265 },
-      ],
-    };
+  computed: {
+    stocks() {
+      return this.$store.getters.stocks;
+    },
   },
 });
 </script>
