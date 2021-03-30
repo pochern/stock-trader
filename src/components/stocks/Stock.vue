@@ -60,9 +60,11 @@ h3 {
 .form-control {
   @include w-h(200px, undefined);
 }
+
 .card {
   @include margin(bottom 30px);
 }
+
 .card-text {
   display: flex;
   justify-content: space-between;
