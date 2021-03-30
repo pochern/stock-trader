@@ -1,17 +1,16 @@
-/* eslint no-shadow: ["error", { "allow": ["state"] }] */
 import stocks from '@/data/stocks';
 import { Stock } from '@/interfaces/stocks';
 
-interface State {
+export interface StocksState {
   stocks: Array<Stock>;
 }
 
-const state: State = {
+const state: StocksState = {
   stocks: [],
 };
 
 const mutations = {
-  SET_STOCKS(state: State, updatedStocks: Array<Stock>) {
+  SET_STOCKS(state: StocksState, updatedStocks: Array<Stock>) {
     state.stocks = updatedStocks;
   },
 };
