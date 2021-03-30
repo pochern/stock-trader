@@ -14,7 +14,7 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-shadow': ['error', { 'allow': ['state'] }],
+    'no-shadow': ['error', { 'allow': ['state', 'getters'] }],
     'vue/html-self-closing': ['error', {
       html: {
         normal: 'never',
