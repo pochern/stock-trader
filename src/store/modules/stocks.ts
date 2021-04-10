@@ -1,4 +1,5 @@
 import stocks from '@/data/stocks';
+import { Order } from '@/interfaces/portfolio';
 import { Stock } from '@/interfaces/stocks';
 
 export interface StocksState {
@@ -16,8 +17,8 @@ const mutations = {
 };
 
 const actions = {
-  buyStock({ commit }: {commit: Function}) {
-    commit();
+  buyStock({ commit }: {commit: Function}, order: Order) {
+    commit('BUY_STOCK', order);
   },
   initStocks({ commit }: {commit: Function}) {
     commit('SET_STOCKS', stocks);

@@ -24,6 +24,8 @@
         >
         <b-button
           variant="success"
+          :disabled="quantity <= 0 || !Number.isInteger(quantity)"
+          @click="buyStock"
         >
           Buy
         </b-button>
@@ -46,6 +48,17 @@ export default Vue.extend({
     return {
       quantity: 0,
     };
+  },
+  methods: {
+    buyStock() {
+      const order = {
+        stockId: this.stock.id,
+        stockPrice: this.stock.price,
+        quantity: this.quantity,
+      };
+      console.log(order);
+      this.$store.dispatch('buyStock', order);
+    },
   },
 });
 </script>
