@@ -38,6 +38,9 @@
             Load Data
           </b-dropdown-item>
         </b-nav-item-dropdown>
+        <b-nav-item>
+          <strong>Funds: {{ funds }}</strong>
+        </b-nav-item>
       </b-nav-form>
     </b-navbar-nav>
   </b-navbar>
@@ -50,3 +53,15 @@ nav {
   @include margin(bottom 30px);
 }
 </style>
+
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
+  computed: {
+    funds() {
+      return this.$store.getters.funds;
+    },
+  },
+});
+</script>
