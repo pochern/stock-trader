@@ -4,7 +4,7 @@
       v-for="stock in stocks"
       :key="stock.id"
       :stock="stock"
-    ></app-stock>
+    />
   </b-row>
 </template>
 
@@ -14,7 +14,7 @@ import Stock from '@/components/stocks/Stock.vue';
 
 export default Vue.extend({
   components: {
-    'app-stock': Stock,
+    appStock: Stock,
   },
   computed: {
     stocks() {
