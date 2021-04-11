@@ -39,7 +39,7 @@
           </b-dropdown-item>
         </b-nav-item-dropdown>
         <b-nav-item>
-          <strong>Funds: {{ funds }}</strong>
+          <strong>Funds: {{ funds | currency }}</strong>
         </b-nav-item>
       </b-nav-form>
     </b-navbar-nav>
