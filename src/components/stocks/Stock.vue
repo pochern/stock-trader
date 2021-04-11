@@ -96,7 +96,7 @@ h3 {
 .danger {
   border: 1px solid red;
   &:focus {
-    border: 1px solid red;
+    @extend .danger;
   }
 }
 </style>
