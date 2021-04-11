@@ -26,7 +26,9 @@
     <!-- Right aligned nav items -->
     <b-navbar-nav class="ml-auto">
       <b-nav-form>
-        <b-nav-item>End Day</b-nav-item>
+        <b-nav-item @click="endDay">
+          End Day
+        </b-nav-item>
         <b-nav-item-dropdown
           text="Save & Load"
           right
@@ -46,16 +48,9 @@
   </b-navbar>
 </template>
 
-<style lang="scss" scoped>
-@import '@/styles/main.scss';
-
-nav {
-  @include margin(bottom 30px);
-}
-</style>
-
 <script lang="ts">
 import Vue from 'vue';
+import { mapActions } from 'vuex';
 
 export default Vue.extend({
   computed: {
@@ -63,5 +58,21 @@ export default Vue.extend({
       return this.$store.getters.funds;
     },
   },
+  methods: {
+    ...mapActions([
+      'randomizeStocks',
+    ]),
+    endDay() {
+      this.randomizeStocks();
+    },
+  },
 });
 </script>
+
+<style lang="scss" scoped>
+@import '@/styles/main.scss';
+
+nav {
+  @include margin(bottom 30px);
+}
+</style>

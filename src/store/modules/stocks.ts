@@ -14,16 +14,22 @@ const mutations = {
   SET_STOCKS(state: StocksState, updatedStocks: Array<Stock>) {
     state.stocks = updatedStocks;
   },
+  RND_STOCKS(state: StocksState) {
+    state.stocks.forEach((stock) => {
+      // Everything between 0.5 of current price and 1.5
+      stock.price = Math.round(stock.price * (1 + Math.random() - 0.5));
+    });
+  },
 };
 
 const actions = {
-  buyStock({ commit }: {commit: Function}, order: Order) {
+  buyStock({ commit }: { commit: Function }, order: Order) {
     commit('BUY_STOCK', order);
   },
-  initStocks({ commit }: {commit: Function}) {
+  initStocks({ commit }: { commit: Function }) {
     commit('SET_STOCKS', stocks);
   },
-  randomizeStocks({ commit }: {commit: Function}) {
+  randomizeStocks({ commit }: { commit: Function }) {
     commit('RND_STOCKS');
   },
 };
