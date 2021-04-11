@@ -21,13 +21,14 @@
           class="form-control"
           type="number"
           placeholder="Quantity"
+          :class="{ danger: insufficientQuantity }"
         >
         <b-button
           variant="success"
-          :disabled="quantity <= 0 || !Number.isInteger(quantity)"
+          :disabled="insufficientQuantity || quantity <= 0 || !Number.isInteger(quantity)"
           @click="sellStock"
         >
-          Sell
+          {{ insufficientQuantity ? 'Not enough' : 'Sell' }}
         </b-button>
       </b-card-text>
     </b-card>
@@ -49,6 +50,11 @@ export default Vue.extend({
     return {
       quantity: 0,
     };
+  },
+  computed: {
+    insufficientQuantity(): boolean {
+      return this.quantity > this.stock.quantity;
+    },
   },
   methods: {
     ...mapActions({
@@ -75,10 +81,6 @@ h3 {
   @include margin(bottom 0);
 }
 
-.form-control {
-  @include w-h(200px, undefined);
-}
-
 .card {
   @include margin(bottom 30px);
 }
@@ -86,5 +88,16 @@ h3 {
 .card-text {
   display: flex;
   justify-content: space-between;
+}
+
+.form-control {
+  @include w-h(200px, undefined);
+}
+
+.danger {
+  border: 1px solid red;
+  &:focus {
+    @extend .danger;
+  }
 }
 </style>
