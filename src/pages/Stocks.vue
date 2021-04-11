@@ -11,13 +11,14 @@
 <script lang="ts">
 import Vue from 'vue';
 import Stock from '@/components/stocks/Stock.vue';
+import { Stock as IStock } from '@/interfaces/stocks';
 
 export default Vue.extend({
   components: {
     appStock: Stock,
   },
   computed: {
-    stocks() {
+    stocks(): IStock[] {
       return this.$store.getters.stocks;
     },
   },

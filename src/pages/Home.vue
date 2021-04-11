@@ -13,7 +13,7 @@ import Vue from 'vue';
 
 export default Vue.extend({
   computed: {
-    funds() {
+    funds(): number {
       return this.$store.getters.funds;
     },
   },
