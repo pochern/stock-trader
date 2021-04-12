@@ -2,7 +2,12 @@
   <div id="app">
     <the-header />
     <section class="content">
-      <router-view />
+      <transition
+        name="slide"
+        mode="out-in"
+      >
+        <router-view />
+      </transition>
     </section>
   </div>
 </template>
@@ -37,4 +42,38 @@ body {
 .content {
   @include padding(all (0 30px));
 }
+
+.slide-enter-active {
+  // forwards = keeps end position
+  animation: slide-in 200ms ease-out forwards;
+}
+
+.slide-leave-active {
+  // forwards = keeps end position
+  animation: slide-out 200ms ease-out forwards;
+
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+}
+
 </style>
