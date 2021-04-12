@@ -39,7 +39,10 @@
           >
             Save Data
           </b-dropdown-item>
-          <b-dropdown-item href="#">
+          <b-dropdown-item
+            href="#"
+            @click="loadData"
+          >
             Load Data
           </b-dropdown-item>
         </b-nav-item-dropdown>
@@ -68,9 +71,10 @@ export default Vue.extend({
     },
   },
   methods: {
-    ...mapActions([
-      'randomizeStocks',
-    ]),
+    ...mapActions({
+      randomizeStocks: 'randomizeStocks',
+      fetchData: 'loadData',
+    }),
     endDay() {
       this.randomizeStocks();
     },
@@ -82,6 +86,9 @@ export default Vue.extend({
       };
       // PUT request will overwrite old data
       axios.put(`${this.url}/data.json`, data);
+    },
+    loadData() {
+      this.fetchData();
     },
   },
 });
