@@ -33,7 +33,10 @@
           text="Save & Load"
           right
         >
-          <b-dropdown-item href="#">
+          <b-dropdown-item
+            href="#"
+            @click="saveData"
+          >
             Save Data
           </b-dropdown-item>
           <b-dropdown-item href="#">
@@ -51,8 +54,14 @@
 <script lang="ts">
 import Vue from 'vue';
 import { mapActions } from 'vuex';
+import axios from 'axios';
 
 export default Vue.extend({
+  data() {
+    return {
+      url: process.env.VUE_APP_URL,
+    };
+  },
   computed: {
     funds() {
       return this.$store.getters.funds;
@@ -64,6 +73,15 @@ export default Vue.extend({
     ]),
     endDay() {
       this.randomizeStocks();
+    },
+    saveData() {
+      const data = {
+        funds: this.funds,
+        stockPortfolio: this.$store.getters.stockPortfolio,
+        stocks: this.$store.getters.stocks,
+      };
+      // PUT request will overwrite old data
+      axios.put(`${this.url}/data.json`, data);
     },
   },
 });
