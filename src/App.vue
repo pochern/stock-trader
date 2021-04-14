@@ -12,6 +12,7 @@
     <footer>
       <h2>The Footer</h2>
       <button>Create reminders</button>
+      <button>Click for bitcoin</button>
     </footer>
   </div>
 </template>
