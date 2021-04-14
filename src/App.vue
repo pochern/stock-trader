@@ -9,6 +9,10 @@
         <router-view />
       </transition>
     </section>
+    <footer>
+      <h2>The Footer</h2>
+      <button>Create reminders</button>
+    </footer>
   </div>
 </template>
 
